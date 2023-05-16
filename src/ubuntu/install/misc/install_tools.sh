@@ -7,5 +7,5 @@ if [ "$DISTRO" = centos ]; then
   yum install xdotool -y
 else
   apt-get update
-  apt-get install -y nano zip xdotool culr wget
+  apt-get install -y nano zip unzip xdotool culr wget
 fi
