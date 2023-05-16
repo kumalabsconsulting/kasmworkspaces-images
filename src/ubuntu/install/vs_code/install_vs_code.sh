@@ -18,39 +18,40 @@ apt-get update
 apt-get install -y python3-setuptools \
                    python3-venv \
                    python3-virtualenv
+
 echo "------------------------------------------------------ common extensions"
-code --install-extension  mhutchie.git-graph
-code --install-extension  redhat.vscode-yaml
-code --install-extension  mechatroner.rainbow-csv
-code --install-extension  formulahendry.auto-close-tag
-code --install-extension  formulahendry.auto-rename-tag
-code --install-extension  anteprimorac.html-end-tag-labels
-code --install-extension  abusaidm.html-snippets
-code --install-extension  sndst00m.vscode-native-svg-preview
-code --install-extension  pranaygp.vscode-css-peek
-code --install-extension  anseki.vscode-color
+code --install-extension  --no-sandbox --user-data-dir kasm-user mhutchie.git-graph
+code --install-extension  --no-sandbox --user-data-dir kasm-user redhat.vscode-yaml
+code --install-extension  --no-sandbox --user-data-dir kasm-user mechatroner.rainbow-csv
+code --install-extension  --no-sandbox --user-data-dir kasm-user formulahendry.auto-close-tag
+code --install-extension  --no-sandbox --user-data-dir kasm-user formulahendry.auto-rename-tag
+code --install-extension  --no-sandbox --user-data-dir kasm-user anteprimorac.html-end-tag-labels
+code --install-extension  --no-sandbox --user-data-dir kasm-user abusaidm.html-snippets
+code --install-extension  --no-sandbox --user-data-dir kasm-user sndst00m.vscode-native-svg-preview
+code --install-extension  --no-sandbox --user-data-dir kasm-user pranaygp.vscode-css-peek
+code --install-extension  --no-sandbox --user-data-dir kasm-user anseki.vscode-color
 echo "------------------------------------------------------ themes"
-code --install-extension  armandphilippot.coldark
-code --install-extension  RobbOwen.synthwave-vscode
-code --install-extension  nadim-vscode.infinity-dark-theme
-code --install-extension  emroussel.atomize-atom-one-dark-theme
-code --install-extension  teabyii.ayu
-code --install-extension  wesbos.theme-cobalt2
-code --install-extension  github.github-vscode-theme
-code --install-extension  armandphilippot.coldark
-code --install-extension  radiolevity.search-lights
-code --install-extension  vladeeg.vscode-theme-vlight
-code --install-extension  akamud.vscode-theme-onelight
-code --install-extension  akamud.vscode-theme-onedark
-code --install-extension  rubjo.ultimate-dark-neo
-code --install-extension  sainnhe.edge
-code --install-extension  circleci.circleci
-code --install-extension  lakshitsomani.best-themes-redefined
-code --install-extension  usernamehw.prism
-code --install-extension  ms-azuretools.vscode-docker
+code --install-extension  --no-sandbox --user-data-dir kasm-user armandphilippot.coldark
+code --install-extension  --no-sandbox --user-data-dir kasm-user RobbOwen.synthwave-vscode
+code --install-extension  --no-sandbox --user-data-dir kasm-user nadim-vscode.infinity-dark-theme
+code --install-extension  --no-sandbox --user-data-dir kasm-user emroussel.atomize-atom-one-dark-theme
+code --install-extension  --no-sandbox --user-data-dir kasm-user teabyii.ayu
+code --install-extension  --no-sandbox --user-data-dir kasm-user wesbos.theme-cobalt2
+code --install-extension  --no-sandbox --user-data-dir kasm-user github.github-vscode-theme
+code --install-extension  --no-sandbox --user-data-dir kasm-user armandphilippot.coldark
+code --install-extension  --no-sandbox --user-data-dir kasm-user radiolevity.search-lights
+code --install-extension  --no-sandbox --user-data-dir kasm-user vladeeg.vscode-theme-vlight
+code --install-extension  --no-sandbox --user-data-dir kasm-user akamud.vscode-theme-onelight
+code --install-extension  --no-sandbox --user-data-dir kasm-user akamud.vscode-theme-onedark
+code --install-extension  --no-sandbox --user-data-dir kasm-user rubjo.ultimate-dark-neo
+code --install-extension  --no-sandbox --user-data-dir kasm-user sainnhe.edge
+code --install-extension  --no-sandbox --user-data-dir kasm-user circleci.circleci
+code --install-extension  --no-sandbox --user-data-dir kasm-user lakshitsomani.best-themes-redefined
+code --install-extension  --no-sandbox --user-data-dir kasm-user usernamehw.prism
+code --install-extension  --no-sandbox --user-data-dir kasm-user ms-azuretools.vscode-docker
 echo "------------------------------------------------------ icons"
-code --install-extension  emroussel.atom-icons
-code --install-extension  laurenttreguier.vscode-simple-icons 
+code --install-extension  --no-sandbox --user-data-dir kasm-user emroussel.atom-icons
+code --install-extension  --no-sandbox --user-data-dir kasm-user laurenttreguier.vscode-simple-icons 
 
 # Cleanup
 if [ -z ${SKIP_CLEAN+x} ]; then
