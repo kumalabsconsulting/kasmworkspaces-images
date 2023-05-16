@@ -6,7 +6,7 @@ name: desktopBuilds
 steps:
 - name: build_jammy_desktop
   when:
-    branch: develop
+    branch: jammy_desktop
   image: plugins/docker
   settings:
     dockerfile: Dockerfile
@@ -25,7 +25,7 @@ name: vscodebuild
 steps:
 - name: build_vscode
   when:
-    branch: develop
+    branch: vscodebuild
   image: plugins/docker
   settings:
     dockerfile: Dockerfile
