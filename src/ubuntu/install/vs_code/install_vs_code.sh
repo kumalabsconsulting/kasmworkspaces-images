@@ -21,6 +21,7 @@ apt-get install -y python3-setuptools \
 
 echo "------------------------------------------------------ common extensions"
 code --install-extension  --no-sandbox --user-data-dir kasm-user mhutchie.git-graph
+code --install-extension  --no-sandbox --user-data-dir kasm-user ms-vscode-remote.remote-ssh
 code --install-extension  --no-sandbox --user-data-dir kasm-user redhat.vscode-yaml
 code --install-extension  --no-sandbox --user-data-dir kasm-user mechatroner.rainbow-csv
 code --install-extension  --no-sandbox --user-data-dir kasm-user formulahendry.auto-close-tag
