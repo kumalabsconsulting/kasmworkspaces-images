@@ -22,7 +22,7 @@ steps:
 kind: pipeline
 type: docker
 name: vscodebuild
-
+steps:
 - name: build_vscode
   when:
     branch: develop
