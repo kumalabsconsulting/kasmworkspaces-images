@@ -18,13 +18,16 @@ steps:
     tags: 0.0.2
     context: ""
     dockerfile: "dockerfile-kasm-ubuntu-jammy-desktop-kuma"
-- name: notification
-  image: appleboy/drone-telegram
+- name: notify by EMAIL
+  image: drillster/drone-email
   settings:
-    token:
-      from_secret: TELEGRAM_TOKEN
-    to:
-      from_secret: TELEGRAM_NUMBER
+    host:
+      from_secret: EMAIL_URL
+    username:
+      from_secret: EMAIL_USERNAME
+    password:
+      from_secret: EMAIL_PASSWD
+    from: drone@mykuma.xyz
     message: >
       😄 {{repo.name}} / {{commit.branch}} - {{commit.message}}
       {{#success build.status}}
