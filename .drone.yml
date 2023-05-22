@@ -18,27 +18,7 @@ steps:
     tags: 0.0.1
     context: ""
     dockerfile: "dockerfile-kasm-vs-code"
-#- name: notification
-#  image: appleboy/drone-telegram
-#  settings:
-#    token:
-#      from_secret: TELEGRAM_TOKEN
-#    to:
-#      from_secret: TELEGRAM_NUMBER
-#    message: >
-#      😄 {{repo.name}} / {{commit.branch}} - {{commit.message}}
-#      {{#success build.status}}
-#        ✅ succeeded  for 👷‍♂️ build {{build.number}}
-#      {{else}}
-#        ❌ failed for 👷‍♂️ build {{build.number}}
-#      {{/success}}
-#  when:
-#    status:
-#      - failure
-#      - success
-#  depends_on:
-#    - build_vscode
-- name: notify by EMAIL
+ name: notify by EMAIL
   image: drillster/drone-email
   settings:
     host:
