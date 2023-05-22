@@ -44,7 +44,7 @@ steps:
     host:
       from_secret: EMAIL_URL
     username:
-      from_secret: EMAIL_USER
+      from_secret: EMAIL_USERNAME
     password:
       from_secret: EMAIL_PASSWD
     from: drone@mykuma.xyz
