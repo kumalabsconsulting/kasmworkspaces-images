@@ -19,25 +19,25 @@ steps:
     context: ""
     dockerfile: "dockerfile-kasm-ubuntu-jammy-desktop-kuma"
 - name: notification
-   image: appleboy/drone-telegram
-   settings:
-     token:
-       from_secret: TELEGRAM_TOKEN
-     to:
-       from_secret: TELEGRAM_NUMBER
-     message: >
-       😄 {{repo.name}} / {{commit.branch}} - {{commit.message}}
-       {{#success build.status}}
-         ✅ succeeded  for 👷‍♂️ build {{build.number}}
-       {{else}}
-         ❌ failed for 👷‍♂️ build {{build.number}}
-       {{/success}}
-   when:
-     status:
-       - failure
-       - success
-   depends_on:
-     - build_jammy_desktop
+  image: appleboy/drone-telegram
+  settings:
+    token:
+      from_secret: TELEGRAM_TOKEN
+    to:
+      from_secret: TELEGRAM_NUMBER
+    message: >
+      😄 {{repo.name}} / {{commit.branch}} - {{commit.message}}
+      {{#success build.status}}
+        ✅ succeeded  for 👷‍♂️ build {{build.number}}
+      {{else}}
+        ❌ failed for 👷‍♂️ build {{build.number}}
+      {{/success}}
+  when:
+    status:
+      - failure
+      - success
+  depends_on:
+    - build_jammy_desktop
 ---
 kind: pipeline
 type: docker
@@ -59,22 +59,22 @@ steps:
     context: ""
     dockerfile: "dockerfile-kasm-vs-code"
 - name: notification
-   image: appleboy/drone-telegram
-   settings:
-     token:
-       from_secret: TELEGRAM_TOKEN
-     to:
-       from_secret: TELEGRAM_NUMBER
-     message: >
-       😄 {{repo.name}} / {{commit.branch}} - {{commit.message}}
-       {{#success build.status}}
-         ✅ succeeded  for 👷‍♂️ build {{build.number}}
-       {{else}}
-         ❌ failed for 👷‍♂️ build {{build.number}}
-       {{/success}}
-   when:
-     status:
-       - failure
-       - success
-   depends_on:
-     - build_vscode
+  image: appleboy/drone-telegram
+  settings:
+    token:
+      from_secret: TELEGRAM_TOKEN
+    to:
+      from_secret: TELEGRAM_NUMBER
+    message: >
+      😄 {{repo.name}} / {{commit.branch}} - {{commit.message}}
+      {{#success build.status}}
+        ✅ succeeded  for 👷‍♂️ build {{build.number}}
+      {{else}}
+        ❌ failed for 👷‍♂️ build {{build.number}}
+      {{/success}}
+  when:
+    status:
+      - failure
+      - success
+  depends_on:
+    - build_vscode
