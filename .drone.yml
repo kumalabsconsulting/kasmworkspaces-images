@@ -18,7 +18,7 @@ steps:
     tags: 0.0.1
     context: ""
     dockerfile: "dockerfile-kasm-vs-code"
- name: notify by EMAIL
+- name: notify by EMAIL
   image: drillster/drone-email
   settings:
     host:
