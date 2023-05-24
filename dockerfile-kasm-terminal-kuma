@@ -30,7 +30,7 @@ then \n\
     eval \${SHELL_EXEC} \n\
 fi  " >> $HOME/.bashrc && echo 'alias ll="ls -rthl"' >> $HOME/.bashrc && chown 1000:1000  $HOME/.bashrc
 
-COPY $INST_DIR/ubuntu/install/terminal/custom_startup.sh $STARTUPDIR/custom_startup.sh
+COPY ./src/ubuntu/install/terminal/custom_startup.sh $STARTUPDIR/custom_startup.sh
 RUN chmod +x $STARTUPDIR/custom_startup.sh
 RUN chmod 755 $STARTUPDIR/custom_startup.sh
 
