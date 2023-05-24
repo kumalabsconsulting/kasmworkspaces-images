@@ -14,6 +14,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
     INST_DIR=$STARTUPDIR/install \
     INST_SCRIPTS="/ubuntu/install/tools/install_tools_dev.sh \
                   /ubuntu/install/misc/install_tools.sh \
+                  /ubuntu/ansible/install_ansible.sh \
+                  /ubuntu/terraform/install_terraform.sh \
                   /ubuntu/install/cleanup/cleanup.sh"
 WORKDIR $HOME
 # Copy install scripts
@@ -28,15 +30,7 @@ then \n\
     eval \${SHELL_EXEC} \n\
 fi  " >> $HOME/.bashrc && echo 'alias ll="ls -rthl"' >> $HOME/.bashrc && chown 1000:1000  $HOME/.bashrc
 
-### Install Ansible
-COPY ./src/ubuntu/install/ansible $INST_SCRIPTS/ansible/
-RUN bash $INST_SCRIPTS/ansible/install_ansible.sh  && rm -rf $INST_SCRIPTS/ansible/
-
-### Install Terraform
-COPY ./src/ubuntu/install/terraform $INST_SCRIPTS/terraform/
-RUN bash $INST_SCRIPTS/terraform/install_terraform.sh  && rm -rf $INST_SCRIPTS/terraform/
-
-COPY ./src/ubuntu/install/terminal/custom_startup.sh $STARTUPDIR/custom_startup.sh
+COPY $INST_DIR/ubuntu/install/terminal/custom_startup.sh $STARTUPDIR/custom_startup.sh
 RUN chmod +x $STARTUPDIR/custom_startup.sh
 RUN chmod 755 $STARTUPDIR/custom_startup.sh
 
