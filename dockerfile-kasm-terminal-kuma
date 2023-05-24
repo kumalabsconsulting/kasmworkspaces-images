@@ -16,6 +16,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
                   /ubuntu/install/misc/install_tools.sh \
                   /ubuntu/install/cleanup/cleanup.sh"
 WORKDIR $HOME
+# Copy install scripts
+COPY ./src/ $INST_DIR
 
 ######### Customize Container Here ###########
 
