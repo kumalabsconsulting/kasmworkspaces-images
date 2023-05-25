@@ -30,6 +30,7 @@ code --install-extension  --no-sandbox --user-data-dir kasm-user abusaidm.html-s
 code --install-extension  --no-sandbox --user-data-dir kasm-user sndst00m.vscode-native-svg-preview
 code --install-extension  --no-sandbox --user-data-dir kasm-user pranaygp.vscode-css-peek
 code --install-extension  --no-sandbox --user-data-dir kasm-user anseki.vscode-color
+code --install-extension  --no-sandbox --user-data-dir kasm-user ms-vscode-remote.remote-ssh
 echo "------------------------------------------------------ themes"
 code --install-extension  --no-sandbox --user-data-dir kasm-user armandphilippot.coldark
 code --install-extension  --no-sandbox --user-data-dir kasm-user RobbOwen.synthwave-vscode
