@@ -15,7 +15,7 @@ steps:
     password:
       from_secret: DOCKERHUB_PASSWORD
     repo: redbeard28/kasm-vscode-workspace
-    tags: 0.0.2
+    tags: 0.0.3
     context: ""
     dockerfile: "dockerfile-kasm-vs-code"
 - name: notify by EMAIL
