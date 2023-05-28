@@ -17,7 +17,7 @@ steps:
     repo: redbeard28/kasm-darktable-workspace
     tags: 0.0.1
     context: ""
-    dockerfile: "dockerfile-darktable"
+    dockerfile: "dockerfile-kasm-darktable"
 - name: notify by EMAIL
   image: drillster/drone-email
   settings:
