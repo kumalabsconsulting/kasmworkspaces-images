@@ -1,12 +1,12 @@
 ---
 kind: pipeline
 type: docker
-name: vscodebuild
+name: darktable
 
 steps:
-- name: build_vscode
+- name: build_darktable
   when:
-    branch: vscodebuild
+    branch: darktable
   image: plugins/docker
   settings:
     dockerfile: Dockerfile
@@ -14,10 +14,10 @@ steps:
       from_secret: DOCKERHUB_USER
     password:
       from_secret: DOCKERHUB_PASSWORD
-    repo: redbeard28/kasm-vscode-workspace
-    tags: 0.0.3
+    repo: redbeard28/kasm-darktable-workspace
+    tags: 0.0.1
     context: ""
-    dockerfile: "dockerfile-kasm-vs-code"
+    dockerfile: "dockerfile-darktable"
 - name: notify by EMAIL
   image: drillster/drone-email
   settings:
@@ -40,4 +40,4 @@ steps:
       - failure
       - success
   depends_on:
-    - build_vscode
+    - build_darktable
