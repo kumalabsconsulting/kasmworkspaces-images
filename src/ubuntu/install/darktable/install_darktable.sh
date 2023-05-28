@@ -4,7 +4,7 @@ set -ex
 # Install Darktable from repo ppa
 add-apt-repository ppa:ubuntuhandbook1/darktable
 apt-get update
-apt install darktable
+apt install -y darktable
 
 
 ## Desktop file setup
