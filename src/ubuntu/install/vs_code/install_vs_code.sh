@@ -52,7 +52,11 @@ code --install-extension  --no-sandbox --user-data-dir kasm-user usernamehw.pris
 code --install-extension  --no-sandbox --user-data-dir kasm-user ms-azuretools.vscode-docker
 echo "------------------------------------------------------ icons"
 code --install-extension  --no-sandbox --user-data-dir kasm-user emroussel.atom-icons
-code --install-extension  --no-sandbox --user-data-dir kasm-user laurenttreguier.vscode-simple-icons 
+code --install-extension --no-sandbox --user-data-dir kasm-user laurenttreguier.vscode-simple-icons
+echo "------------------------------------------------------ DevOPS"
+code --install-extension --no-sandbox --user-data-dir kasm-user samuelcolvin.jinjahtml
+code --install-extension --no-sandbox --user-data-dir kasm-user redhat.ansible
+code --install-extension --no-sandbox --user-data-dir kasm-user hashicorp.terraform
 
 # Cleanup
 if [ -z ${SKIP_CLEAN+x} ]; then

@@ -15,7 +15,7 @@ steps:
     password:
       from_secret: DOCKERHUB_PASSWORD
     repo: redbeard28/kasm-jammy-workspace
-    tags: 0.0.3
+    tags: 0.0.4
     context: ""
     dockerfile: "dockerfile-kasm-ubuntu-jammy-desktop-kuma"
 - name: notify by EMAIL
