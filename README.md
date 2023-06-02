@@ -8,7 +8,7 @@ This repo is used by me to create customs Kasm Workspace from there original [re
 
 # Status of my images
 
-|Branch|Status|
-|------|------|
-| Brave Workspace|[![Build brave Status](https://droneci.home.mykuma.xyz/api/badges/kumalabsconsulting/kasmworkspaces-images/status.svg?ref=refs/heads/brave-workspace)](https://droneci.home.mykuma.xyz/kumalabsconsulting/kasmworkspaces-images)|
-| Jammy Desktop | [![Build Status](https://droneci.home.mykuma.xyz/api/badges/kumalabsconsulting/kasmworkspaces-images/status.svg?ref=refs/heads/jammy_desktop)](https://droneci.home.mykuma.xyz/kumalabsconsulting/kasmworkspaces-images)|
+|Branch|Status|Scheduled|
+|------|------|---------|
+| Brave Workspace|[![Build brave Status](https://droneci.home.mykuma.xyz/api/badges/kumalabsconsulting/kasmworkspaces-images/status.svg?ref=refs/heads/brave-workspace)](https://droneci.home.mykuma.xyz/kumalabsconsulting/kasmworkspaces-images)|true|
+| Jammy Desktop | [![Build Status](https://droneci.home.mykuma.xyz/api/badges/kumalabsconsulting/kasmworkspaces-images/status.svg?ref=refs/heads/jammy_desktop)](https://droneci.home.mykuma.xyz/kumalabsconsulting/kasmworkspaces-images)|true|
