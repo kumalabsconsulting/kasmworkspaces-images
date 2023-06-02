@@ -5,15 +5,16 @@ ARCH=$(arch | sed 's/aarch64/arm64/g' | sed 's/x86_64/amd64/g')
 CHROME_ARGS="--password-store=basic --no-sandbox --ignore-gpu-blocklist --user-data-dir --no-first-run --check-for-update-interval=31449600"
 
 apt-get update
-apt install -y  apt-transport-https curl
+apt-get upgrade -y
+apt-get install -y  apt-transport-https curl
 
 curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc |  apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
 
 echo "deb [arch=${ARCH}] https://brave-browser-apt-release.s3.brave.com/ stable main" |  tee /etc/apt/sources.list.d/brave-browser-release.list
 
-apt update
+apt-get update
 
-apt install -y  brave-browser
+apt-get install -y  brave-browser
 
 sed -i 's/-stable//g' /usr/share/applications/brave-browser.desktop
 

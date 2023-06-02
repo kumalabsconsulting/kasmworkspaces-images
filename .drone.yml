@@ -1,12 +1,12 @@
 ---
 kind: pipeline
 type: docker
-name: desktopBuilds
+name: braveBuild
 
 steps:
-- name: build_jammy_desktop
+- name: build_brave_workspace
   when:
-    branch: jammy_desktop
+    branch: brave-workspace
   image: plugins/docker
   settings:
     dockerfile: Dockerfile
@@ -14,10 +14,10 @@ steps:
       from_secret: DOCKERHUB_USER
     password:
       from_secret: DOCKERHUB_PASSWORD
-    repo: redbeard28/kasm-jammy-workspace
-    tags: 0.0.4.1
+    repo: redbeard28/brave-workspace
+    tags: 0.0.1
     context: ""
-    dockerfile: "dockerfile-kasm-ubuntu-jammy-desktop-kuma"
+    dockerfile: "dockerfile-kasm-brave"
 - name: notify by EMAIL
   image: drillster/drone-email
   settings:
@@ -40,4 +40,4 @@ steps:
       - failure
       - success
   depends_on:
-    - build_jammy_desktop
+    - build_brave_workspace
