@@ -57,6 +57,7 @@ echo "------------------------------------------------------ DevOPS"
 code --install-extension --no-sandbox --user-data-dir kasm-user samuelcolvin.jinjahtml
 code --install-extension --no-sandbox --user-data-dir kasm-user redhat.ansible
 code --install-extension --no-sandbox --user-data-dir kasm-user hashicorp.terraform
+code --install-extension --no-sandbox --user-data-dir kasm-user ms-azuretools.vscode-docker
 
 # Cleanup
 if [ -z ${SKIP_CLEAN+x} ]; then
