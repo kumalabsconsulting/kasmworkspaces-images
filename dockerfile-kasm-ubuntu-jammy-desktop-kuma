@@ -33,6 +33,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
                   /ubuntu/install/gimp/install_gimp.sh \
                   /ubuntu/install/postman/install_postman.sh \
                   /ubuntu/install/terraform/install_terraform.sh \
+                  /ubuntu/install/packer/install_packer.sh \
                   /ubuntu/install/ansible/install_ansible.sh \
                   /ubuntu/install/cleanup/cleanup.sh"
 
