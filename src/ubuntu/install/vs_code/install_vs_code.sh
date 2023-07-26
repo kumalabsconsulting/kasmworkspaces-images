@@ -21,6 +21,7 @@ apt-get install -y python3-setuptools \
 
 echo "------------------------------------------------------ common extensions"
 code --install-extension  --no-sandbox --user-data-dir kasm-user mhutchie.git-graph
+code --install-extension  --no-sandbox --user-data-dir kasm-user ms-vscode-remote.remote-ssh
 code --install-extension  --no-sandbox --user-data-dir kasm-user redhat.vscode-yaml
 code --install-extension  --no-sandbox --user-data-dir kasm-user mechatroner.rainbow-csv
 code --install-extension  --no-sandbox --user-data-dir kasm-user formulahendry.auto-close-tag
@@ -30,7 +31,6 @@ code --install-extension  --no-sandbox --user-data-dir kasm-user abusaidm.html-s
 code --install-extension  --no-sandbox --user-data-dir kasm-user sndst00m.vscode-native-svg-preview
 code --install-extension  --no-sandbox --user-data-dir kasm-user pranaygp.vscode-css-peek
 code --install-extension  --no-sandbox --user-data-dir kasm-user anseki.vscode-color
-code --install-extension  --no-sandbox --user-data-dir kasm-user ms-vscode-remote.remote-ssh
 echo "------------------------------------------------------ themes"
 code --install-extension  --no-sandbox --user-data-dir kasm-user armandphilippot.coldark
 code --install-extension  --no-sandbox --user-data-dir kasm-user RobbOwen.synthwave-vscode
@@ -46,13 +46,18 @@ code --install-extension  --no-sandbox --user-data-dir kasm-user akamud.vscode-t
 code --install-extension  --no-sandbox --user-data-dir kasm-user akamud.vscode-theme-onedark
 code --install-extension  --no-sandbox --user-data-dir kasm-user rubjo.ultimate-dark-neo
 code --install-extension  --no-sandbox --user-data-dir kasm-user sainnhe.edge
-code --install-extension  --no-sandbox --user-data-dir kasm-user circleci.circleci
+#code --install-extension  --no-sandbox --user-data-dir kasm-user circleci.circleci
 code --install-extension  --no-sandbox --user-data-dir kasm-user lakshitsomani.best-themes-redefined
 code --install-extension  --no-sandbox --user-data-dir kasm-user usernamehw.prism
 code --install-extension  --no-sandbox --user-data-dir kasm-user ms-azuretools.vscode-docker
 echo "------------------------------------------------------ icons"
 code --install-extension  --no-sandbox --user-data-dir kasm-user emroussel.atom-icons
-code --install-extension  --no-sandbox --user-data-dir kasm-user laurenttreguier.vscode-simple-icons 
+code --install-extension --no-sandbox --user-data-dir kasm-user laurenttreguier.vscode-simple-icons
+echo "------------------------------------------------------ DevOPS"
+code --install-extension --no-sandbox --user-data-dir kasm-user samuelcolvin.jinjahtml
+code --install-extension --no-sandbox --user-data-dir kasm-user redhat.ansible
+code --install-extension --no-sandbox --user-data-dir kasm-user hashicorp.terraform
+code --install-extension --no-sandbox --user-data-dir kasm-user ms-azuretools.vscode-docker
 
 # Cleanup
 if [ -z ${SKIP_CLEAN+x} ]; then
