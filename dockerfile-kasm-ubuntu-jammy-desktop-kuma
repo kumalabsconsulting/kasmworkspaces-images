@@ -36,6 +36,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
                   /ubuntu/install/packer/install_packer.sh \
                   /ubuntu/install/ansible/install_ansible.sh \
                   /ubuntu/install/kubernetes/install_kubectl.sh \
+                  /ubuntu/install/vcluster/install_vcluster.sh \
                   /ubuntu/install/cleanup/cleanup.sh"
 
 # Copy install scripts
