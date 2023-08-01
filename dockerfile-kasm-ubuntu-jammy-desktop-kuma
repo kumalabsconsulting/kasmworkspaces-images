@@ -54,9 +54,9 @@ RUN \
   rm -f /etc/X11/xinit/Xclients && \
   chown 1000:0 $HOME && \
   mkdir -p /home/${KASM_USER}/.kube && \
-  echo "source /usr/local/bin/switch.sh" >> /home/${KASM_USER}/.bashrc
-  echo "alias k='kubectl'"  >> /home/${KASM_USER}/.bashrc
-  echo "alias kgp='k get pods'" >> /home/${KASM_USER}/.bashrc
+  echo "source /usr/local/bin/switch.sh" >> /home/${KASM_USER}/.bashrc \
+  echo "alias k='kubectl'"  >> /home/${KASM_USER}/.bashrc \
+  echo "alias kgp='k get pods'" >> /home/${KASM_USER}/.bashrc \
   cp $INST_DIR/ubuntu/install/kubernetes/switch-config.yaml /home/${KASM_USER}/.kube/
   chown -R 1000:0 /home/${KASM_USER} && \
   rm -Rf ${INST_DIR}
