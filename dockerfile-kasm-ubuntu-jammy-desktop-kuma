@@ -1,11 +1,13 @@
 ARG BASE_TAG="1.13.1"
 ARG BASE_IMAGE="core-ubuntu-jammy"
+ARG KASM_USER="kasm-user"
 FROM kasmweb/$BASE_IMAGE:$BASE_TAG
 
 USER root
 
 ENV HOME /home/kasm-default-profile
 ENV STARTUPDIR /dockerstartup
+ENV KASM_USER=$KASM_USER
 WORKDIR $HOME
 
 
@@ -44,31 +46,24 @@ ENV DEBIAN_FRONTEND=noninteractive \
 COPY ./src/ $INST_DIR
 
 # Run installations
-#RUN \
-#  for SCRIPT in $INST_SCRIPTS; do \
-#    bash ${INST_DIR}${SCRIPT}; \
-#  done && \
-#  $STARTUPDIR/set_user_permission.sh $HOME && \
-#  rm -f /etc/X11/xinit/Xclients && \
-#  chown 1000:0 $HOME && \
-#  mkdir -p /home/kasm-user/.kube && \
-#  cp $INST_DIR/ubuntu/install/kubernetes/switch-config.yaml /home/kasm-user/.kube/  && \
-#  chown -R 1000:0 /home/kasm-user && \
-#  rm -Rf ${INST_DIR}
-
 RUN \
-  $STARTUPDIR/set_user_permission.sh $HOME && \
-  mkdir -p /home/kasm-user/.kube && \
   for SCRIPT in $INST_SCRIPTS; do \
     bash ${INST_DIR}${SCRIPT}; \
   done && \
+  $STARTUPDIR/set_user_permission.sh $HOME && \
   rm -f /etc/X11/xinit/Xclients && \
   chown 1000:0 $HOME && \
-  chown -R 1000:0 /home/kasm-user && \
+  mkdir -p /home/${KASM_USER}/.kube && \
+  echo "source /usr/local/bin/switch.sh" >> /home/${KASM_USER}/.bashrc
+  echo "alias k='kubectl'"  >> /home/${KASM_USER}/.bashrc
+  echo "alias kgp='k get pods'" >> /home/${KASM_USER}/.bashrc
+  cp $INST_DIR/ubuntu/install/kubernetes/switch-config.yaml /home/${KASM_USER}/.kube/
+  chown -R 1000:0 /home/${KASM_USER} && \
   rm -Rf ${INST_DIR}
 
+
 # Userspace Runtime
-ENV HOME /home/kasm-user
+ENV HOME /home/${KASM_USER}
 WORKDIR $HOME
 USER 1000
 
