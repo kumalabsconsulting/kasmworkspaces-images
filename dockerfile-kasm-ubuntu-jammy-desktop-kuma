@@ -57,7 +57,7 @@ RUN \
   echo "source /usr/local/bin/switch.sh" >> /home/${KASM_USER}/.bashrc \
   echo "alias k='kubectl'"  >> /home/${KASM_USER}/.bashrc \
   echo "alias kgp='k get pods'" >> /home/${KASM_USER}/.bashrc \
-  cp $INST_DIR/ubuntu/install/kubernetes/switch-config.yaml /home/${KASM_USER}/.kube/
+  cp $INST_DIR/ubuntu/install/kubernetes/switch-config.yaml /home/${KASM_USER}/.kube/ \
   chown -R 1000:0 /home/${KASM_USER} && \
   rm -Rf ${INST_DIR}
 
