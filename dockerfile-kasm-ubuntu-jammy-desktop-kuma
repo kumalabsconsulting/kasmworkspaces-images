@@ -32,8 +32,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
                   /ubuntu/install/chromium/install_chromium.sh \
                   /ubuntu/install/sublime_text/install_sublime_text.sh \
                   /ubuntu/install/vs_code/install_vs_code.sh \
-                  /ubuntu/install/only_office/install_only_office.sh \
-                  /ubuntu/install/gimp/install_gimp.sh \
                   /ubuntu/install/postman/install_postman.sh \
                   /ubuntu/install/terraform/install_terraform.sh \
                   /ubuntu/install/packer/install_packer.sh \
@@ -54,11 +52,11 @@ RUN \
   rm -f /etc/X11/xinit/Xclients && \
   chown 1000:0 $HOME && \
   mkdir -p /home/kasm-user/.kube && \
-  echo "source /usr/local/bin/switch.sh" >> /home/kasm-user/.bashrc \
-  echo "alias k='kubectl'"  >> /home/kasm-user/.bashrc \
-  echo "alias kgp='k get pods'" >> /home/kasm-user/.bashrc \
-  echo "# DEBUG KASM_USER=$KASM_USER" >> /home/kasm-user/.bashrc \
-  cp $INST_DIR/ubuntu/install/kubernetes/switch-config.yaml /home/kasm-user/.kube/ \
+  echo "source /usr/local/bin/switch.sh" >> /home/kasm-user/.bashrc && \
+  echo "alias k='kubectl'"  >> /home/kasm-user/.bashrc && \
+  echo "alias kgp='k get pods'" >> /home/kasm-user/.bashrc && \
+  echo "# DEBUG KASM_USER=$KASM_USER" >> /home/kasm-user/.bashrc && \
+  cp $INST_DIR/ubuntu/install/kubernetes/switch-config.yaml /home/kasm-user/.kube/ && \
   chown -R 1000:0 /home/kasm-user && \
   rm -Rf ${INST_DIR}
 
