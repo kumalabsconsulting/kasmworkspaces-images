@@ -53,17 +53,18 @@ RUN \
   $STARTUPDIR/set_user_permission.sh $HOME && \
   rm -f /etc/X11/xinit/Xclients && \
   chown 1000:0 $HOME && \
-  mkdir -p /home/${KASM_USER}/.kube && \
-  echo "source /usr/local/bin/switch.sh" >> /home/${KASM_USER}/.bashrc \
-  echo "alias k='kubectl'"  >> /home/${KASM_USER}/.bashrc \
-  echo "alias kgp='k get pods'" >> /home/${KASM_USER}/.bashrc \
-  cp $INST_DIR/ubuntu/install/kubernetes/switch-config.yaml /home/${KASM_USER}/.kube/ \
-  chown -R 1000:0 /home/${KASM_USER} && \
+  mkdir -p /home/kasm-user/.kube && \
+  echo "source /usr/local/bin/switch.sh" >> /home/kasm-user/.bashrc \
+  echo "alias k='kubectl'"  >> /home/kasm-user/.bashrc \
+  echo "alias kgp='k get pods'" >> /home/kasm-user/.bashrc \
+  echo "# DEBUG KASM_USER=$KASM_USER" >> /home/kasm-user/.bashrc \
+  cp $INST_DIR/ubuntu/install/kubernetes/switch-config.yaml /home/kasm-user/.kube/ \
+  chown -R 1000:0 /home/kasm-user && \
   rm -Rf ${INST_DIR}
 
 
 # Userspace Runtime
-ENV HOME /home/${KASM_USER}
+ENV HOME /home/kasm-user
 WORKDIR $HOME
 USER 1000
 
