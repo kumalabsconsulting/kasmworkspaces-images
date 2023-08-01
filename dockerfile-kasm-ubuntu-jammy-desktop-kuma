@@ -57,11 +57,11 @@ COPY ./src/ $INST_DIR
 #  rm -Rf ${INST_DIR}
 
 RUN \
+  $STARTUPDIR/set_user_permission.sh $HOME && \
   mkdir -p /home/kasm-user/.kube && \
   for SCRIPT in $INST_SCRIPTS; do \
     bash ${INST_DIR}${SCRIPT}; \
   done && \
-  $STARTUPDIR/set_user_permission.sh $HOME && \
   rm -f /etc/X11/xinit/Xclients && \
   chown 1000:0 $HOME && \
   chown -R 1000:0 /home/kasm-user && \
