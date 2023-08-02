@@ -3,12 +3,12 @@ kind: pipeline
 type: docker
 name: firefoxKioskBuild
 
-environment:
-  MYURL:
-    from_secret: MYURL
 
 steps:
 - name: build_firefox_kiosk
+  environment:
+    MYURL:
+      from_secret: MYURL
   when:
     branch: firefox-kiosk-workspace
   image: plugins/docker
