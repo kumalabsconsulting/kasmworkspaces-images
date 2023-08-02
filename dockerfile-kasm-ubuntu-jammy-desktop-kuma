@@ -56,8 +56,6 @@ RUN \
   echo "alias k='kubectl'"  >> /home/kasm-user/.bashrc && \
   echo "alias kgp='k get pods'" >> /home/kasm-user/.bashrc && \
   echo "# DEBUG KASM_USER=$KASM_USER" >> /home/kasm-user/.bashrc && \
-  cp $INST_DIR/ubuntu/install/kubernetes/switch-config.yaml /home/kasm-user/.kube/ && \
-  chown -R 1000:0 /home/kasm-user && \
   rm -Rf ${INST_DIR}
 
 

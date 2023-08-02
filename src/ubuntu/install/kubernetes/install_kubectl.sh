@@ -18,6 +18,8 @@ if grep -q "ID=debian" /etc/os-release; then
   chmod +x /usr/local/bin/switcher
   curl -L -o  /usr/local/bin/switch.sh https://github.com/danielfoehrKn/kubeswitch/releases/download/${VERSION}/switch.sh
   chmod +x /usr/local/bin/switch.sh
+  cp $INST_DIR/ubuntu/install/kubernetes/switch-config.yaml /home/kasm-user/.kube/
+  chown -R 1000:0 /home/kasm-user
 else
   curl -LO https://dl.k8s.io/release/$(curl -Ls https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl
   chmod +x ./kubectl
@@ -27,5 +29,6 @@ else
   chmod +x /usr/local/bin/switcher
   curl -L -o  /usr/local/bin/switch.sh https://github.com/danielfoehrKn/kubeswitch/releases/download/${VERSION}/switch.sh
   chmod +x /usr/local/bin/switch.sh
-  kubectl version --client
+  cp $INST_DIR/ubuntu/install/kubernetes/switch-config.yaml /home/kasm-user/.kube/
+  chown -R 1000:0 /home/kasm-user
 fi
