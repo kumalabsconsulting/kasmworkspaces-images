@@ -14,7 +14,7 @@ if grep -q "ID=debian" /etc/os-release; then
   curl https://raw.githubusercontent.com/blendle/kns/master/bin/kns -o /usr/local/bin/kns && chmod +x $_
   curl https://github.com/derailed/k9s/releases/download/v0.27.4/k9s_Linux_amd64.tar.gz -o /tmp/k9s_Linux_amd64.tar.gz
   mkdir /tmp/k9s && tar -xzvf /tmp/k9s_Linux_amd64.tar.gz -C /tmp/k9s
-  chmod +x /tmp/k9s/k9s && mv k9s /usr/local/bin/k9s
+  chmod +x /tmp/k9s/k9s && mv /tmp/k9s/k9s /usr/local/bin/k9s
   rm -rf /tmp/k9s*
   apt-get update
   apt-get install -y kubectl fzf
