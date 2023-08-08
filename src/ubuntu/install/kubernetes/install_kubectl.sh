@@ -18,6 +18,8 @@ if grep -q "ID=debian" /etc/os-release; then
   rm -rf k9s*
   apt-get update
   apt-get install -y kubectl fzf
+  kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
+  mkdir -p /home/kasm-user/.kube
   curl -L -o /usr/local/bin/switcher https://github.com/danielfoehrKn/kubeswitch/releases/download/${VERSION}/switcher_${OS}_amd64
   chmod +x /usr/local/bin/switcher
   curl -L -o  /usr/local/bin/switch.sh https://github.com/danielfoehrKn/kubeswitch/releases/download/${VERSION}/switch.sh
@@ -28,7 +30,9 @@ else
   curl -LO https://dl.k8s.io/release/$(curl -Ls https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl
   chmod +x ./kubectl
   mv ./kubectl /usr/local/bin/kubectl
+  kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
   curl https://raw.githubusercontent.com/blendle/kns/master/bin/kns -o /usr/local/bin/kns && chmod +x $_
+  mkdir -p /home/kasm-user/.kube
   curl -L -o /usr/local/bin/switcher https://github.com/danielfoehrKn/kubeswitch/releases/download/${VERSION}/switcher_${OS}_amd64
   chmod +x /usr/local/bin/switcher
   curl -L -o  /usr/local/bin/switch.sh https://github.com/danielfoehrKn/kubeswitch/releases/download/${VERSION}/switch.sh
