@@ -12,10 +12,10 @@ if grep -q "ID=debian" /etc/os-release; then
   curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
   echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
   curl https://raw.githubusercontent.com/blendle/kns/master/bin/kns -o /usr/local/bin/kns && chmod +x $_
-  curl -L https://github.com/derailed/k9s/releases/download/v0.27.4/k9s_Linux_amd64.tar.gz -o k9s_Linux_amd64.tar.gz
-  tar -xzvf k9s_Linux_amd64.tar.gz k9s -C /usr/local/bin/
+  curl -L https://github.com/derailed/k9s/releases/download/v0.27.4/k9s_Linux_amd64.tar.gz -o /root/k9s_Linux_amd64.tar.gz
+  tar -xzvf /root/k9s_Linux_amd64.tar.gz k9s -C /usr/local/bin/
   chmod +x /usr/local/bin/k9s
-  rm -rf k9s*
+  rm -rf /root/k9s*
   apt-get update
   apt-get install -y kubectl fzf
   kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
@@ -38,9 +38,9 @@ else
   curl -L -o  /usr/local/bin/switch.sh https://github.com/danielfoehrKn/kubeswitch/releases/download/${VERSION}/switch.sh
   chmod +x /usr/local/bin/switch.sh
   cp $INST_DIR/ubuntu/install/kubernetes/switch-config.yaml /home/kasm-user/.kube/
-  curl -L https://github.com/derailed/k9s/releases/download/v0.27.4/k9s_Linux_amd64.tar.gz -o k9s_Linux_amd64.tar.gz
-  tar -xzvf k9s_Linux_amd64.tar.gz k9s -C /usr/local/bin/
+  curl -L https://github.com/derailed/k9s/releases/download/v0.27.4/k9s_Linux_amd64.tar.gz -o /root/k9s_Linux_amd64.tar.gz
+  tar -xzvf /root/k9s_Linux_amd64.tar.gz k9s -C /usr/local/bin/
   chmod +x /usr/local/bin/k9s
-  rm -rf k9s*
+  rm -rf /root/k9s*
   chown -R 1000:0 /home/kasm-user
 fi
