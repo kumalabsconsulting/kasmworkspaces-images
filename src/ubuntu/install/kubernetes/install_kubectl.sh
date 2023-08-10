@@ -22,6 +22,6 @@ curl -L -o /usr/local/bin/switcher https://github.com/danielfoehrKn/kubeswitch/r
 chmod +x /usr/local/bin/switcher
 curl -L -o  /usr/local/bin/switch.sh https://github.com/danielfoehrKn/kubeswitch/releases/download/${VERSION}/switch.sh
 chmod +x /usr/local/bin/switch.sh
-cp $INST_DIR/ubuntu/install/kubernetes/switch-config.yaml /home/kasm-user/.kube/
+#cp $INST_DIR/ubuntu/install/kubernetes/switch-config.yaml /home/kasm-user/.kube/
 chown -R 1000:0 /home/kasm-user
 
