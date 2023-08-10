@@ -23,5 +23,8 @@ chmod +x /usr/local/bin/switcher
 curl -L -o  /usr/local/bin/switch.sh https://github.com/danielfoehrKn/kubeswitch/releases/download/${VERSION}/switch.sh
 chmod +x /usr/local/bin/switch.sh
 #cp $INST_DIR/ubuntu/install/kubernetes/switch-config.yaml /home/kasm-user/.kube/
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
 chown -R 1000:0 /home/kasm-user
 
