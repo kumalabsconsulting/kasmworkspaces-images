@@ -4,9 +4,9 @@ type: docker
 name: desktopBuilds
 
 steps:
-- name: build_jammy_desktop
+- name: build_jammy-workspace-1.14.0
   when:
-    branch: jammy_desktop
+    branch: jammy-workspace-1.14.0
   image: plugins/docker
   settings:
     dockerfile: Dockerfile
@@ -40,4 +40,4 @@ steps:
       - failure
       - success
   depends_on:
-    - build_jammy_desktop
+    - build_jammy-workspace-1.14.0
