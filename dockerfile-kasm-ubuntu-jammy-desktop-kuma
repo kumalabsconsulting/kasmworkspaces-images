@@ -17,7 +17,7 @@ WORKDIR $HOME
 # RUN cp /usr/share/extra/backgrounds/customcolor_textlogo_transparent_background.png /usr/share/extra/backgrounds/bg_default.png
 # RUN cp /usr/share/extra/icons/jcu_icon_transparent_background.png /usr/share/extra/icons/icon_default.png
 
-#                 /ubuntu/install/kubernetes/install_kubectl.sh \
+
 ### Envrionment config
 ENV DEBIAN_FRONTEND=noninteractive \
     SKIP_CLEAN=true \
@@ -31,6 +31,11 @@ ENV DEBIAN_FRONTEND=noninteractive \
                   /ubuntu/install/brave/install_brave.sh \
                   /ubuntu/install/chromium/install_chromium.sh \
                   /ubuntu/install/sublime_text/install_sublime_text.sh \
+                  /ubuntu/install/kubernetes/install_kubectl.sh \
+                  /ubuntu/install/kubernetes/install_switch.sh \
+                  /ubuntu/install/kubernetes/install_kns.sh \
+                  /ubuntu/install/kubernetes/install_k9s.sh \
+                  /ubuntu/install/kubernetes/install_helm.sh \
                   /ubuntu/install/vs_code/install_vs_code.sh \
                   /ubuntu/install/postman/install_postman.sh \
                   /ubuntu/install/terraform/install_terraform.sh \
