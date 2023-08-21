@@ -1,4 +1,4 @@
-ARG BASE_TAG="1.13.1"
+ARG BASE_TAG="1.14.0"
 ARG BASE_IMAGE="core-ubuntu-jammy"
 ARG KASM_USER="kasm-user"
 FROM kasmweb/$BASE_IMAGE:$BASE_TAG
