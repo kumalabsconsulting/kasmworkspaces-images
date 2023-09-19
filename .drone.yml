@@ -1,12 +1,12 @@
 ---
 kind: pipeline
 type: docker
-name: braveBuild
+name: openlensBuild
 
 steps:
-- name: build_brave_workspace
+- name: build_openlens_workspace
   when:
-    branch: brave-workspace
+    branch: openlens-workspace
   image: plugins/docker
   settings:
     dockerfile: Dockerfile
@@ -14,10 +14,10 @@ steps:
       from_secret: DOCKERHUB_USER
     password:
       from_secret: DOCKERHUB_PASSWORD
-    repo: redbeard28/brave-workspace
+    repo: redbeard28/openlens-workspace
     tags: 0.0.1
     context: ""
-    dockerfile: "dockerfile-kasm-brave"
+    dockerfile: "dockerfile-kasm-openlens"
 - name: notify by EMAIL
   image: drillster/drone-email
   settings:
@@ -40,4 +40,4 @@ steps:
       - failure
       - success
   depends_on:
-    - build_brave_workspace
+    - build_openlens_workspace
