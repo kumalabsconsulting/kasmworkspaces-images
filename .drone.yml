@@ -4,9 +4,9 @@ type: docker
 name: desktopBuilds
 
 steps:
-- name: build_jammy-workspace-1.14.0
+- name: build_jammy-wks-dind
   when:
-    branch: jammy-workspace-1.14.0
+    branch: jammy-wks-dind
   image: plugins/docker
   settings:
     dockerfile: Dockerfile
@@ -14,10 +14,10 @@ steps:
       from_secret: DOCKERHUB_USER
     password:
       from_secret: DOCKERHUB_PASSWORD
-    repo: redbeard28/kasm-jammy-workspace
+    repo: redbeard28/kasm-jammy-wks-dind
     tags: 0.0.5.4
     context: ""
-    dockerfile: "dockerfile-kasm-ubuntu-jammy-desktop-kuma"
+    dockerfile: "dockerfile-ubuntu-jammy-desktop-dind
 - name: notify by EMAIL
   image: drillster/drone-email
   settings:
@@ -40,4 +40,4 @@ steps:
       - failure
       - success
   depends_on:
-    - build_jammy-workspace-1.14.0
+    - build_jammy-wks-dind

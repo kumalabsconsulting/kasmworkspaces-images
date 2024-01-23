@@ -1,0 +1,70 @@
+ARG BASE_TAG="develop"
+ARG BASE_IMAGE="core-ubuntu-jammy"
+ARG KASM_USER="kasm-user"
+FROM kasmweb/$BASE_IMAGE:$BASE_TAG
+
+USER root
+
+ENV HOME /home/kasm-default-profile
+ENV STARTUPDIR /dockerstartup
+ENV KASM_USER=$KASM_USER
+WORKDIR $HOME
+
+
+# # Add Kasm Branding
+# COPY src/common/kumalabsBranding/jcu_icon_transparent_background.png /usr/share/extra/icons/
+# COPY src/common/kumalabsBranding/customcolor_textlogo_transparent_background.png /usr/share/extra/backgrounds/
+# RUN cp /usr/share/extra/backgrounds/customcolor_textlogo_transparent_background.png /usr/share/extra/backgrounds/bg_default.png
+# RUN cp /usr/share/extra/icons/jcu_icon_transparent_background.png /usr/share/extra/icons/icon_default.png
+
+
+### Envrionment config
+ENV DEBIAN_FRONTEND=noninteractive \
+    SKIP_CLEAN=true \
+    KASM_RX_HOME=$STARTUPDIR/kasmrx \
+    DONT_PROMPT_WSL_INSTALL="No_Prompt_please" \
+    INST_DIR=$STARTUPDIR/install \
+    INST_SCRIPTS="/ubuntu/install/dind/install_dind.sh \
+                  /ubuntu/install/tools/install_tools_dev.sh \
+                  /ubuntu/install/misc/install_tools.sh \
+                  /ubuntu/install/chrome/install_chrome.sh \
+                  /ubuntu/install/firefox/install_firefox.sh \
+                  /ubuntu/install/chromium/install_chromium.sh \
+                  /ubuntu/install/sublime_text/install_sublime_text.sh \
+                  /ubuntu/install/vs_code/install_vs_code.sh \
+                  /ubuntu/install/postman/install_postman.sh \
+                  /ubuntu/install/commitizen/install_commitizen.sh \
+                  /ubuntu/install/terraform/install_terraform.sh \
+                  /ubuntu/install/packer/install_packer.sh \
+                  /ubuntu/install/ansible/install_ansible.sh \
+                  /ubuntu/install/cleanup/cleanup.sh"
+
+# Startup Scripts
+COPY ./src/ubuntu/install/dind/custom_startup.sh $STARTUPDIR/custom_startup.sh
+RUN chmod 755 $STARTUPDIR/custom_startup.sh
+COPY ./src/ubuntu/install/dind/dockerd.conf /etc/supervisor/conf.d/
+
+# Copy install scripts
+COPY ./src/ $INST_DIR
+
+# Run installations
+RUN \
+  for SCRIPT in $INST_SCRIPTS; do \
+    bash ${INST_DIR}${SCRIPT}; \
+  done && \
+  $STARTUPDIR/set_user_permission.sh $HOME && \
+  rm -f /etc/X11/xinit/Xclients && \
+  chown 1000:0 $HOME && \
+# echo "source /usr/local/bin/switch.sh" >> /home/kasm-user/.bashrc && \
+# echo "alias k='kubectl'"  >> /home/kasm-user/.bashrc && \
+# echo "alias kgp='k get pods'" >> /home/kasm-user/.bashrc && \
+# echo "# DEBUG KASM_USER=$KASM_USER" >> /home/kasm-user/.bashrc && \
+  rm -Rf ${INST_DIR}
+
+
+# Userspace Runtime
+ENV HOME /home/kasm-user
+WORKDIR $HOME
+USER 1000
+
+CMD ["--tail-log"]
