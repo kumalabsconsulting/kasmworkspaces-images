@@ -17,7 +17,7 @@ steps:
     repo: redbeard28/kasm-jammy-wks-dind
     tags: 0.0.5.4
     context: ""
-    dockerfile: "dockerfile-ubuntu-jammy-desktop-dind
+    dockerfile: "dockerfile-ubuntu-jammy-desktop-dind"
 - name: notify by EMAIL
   image: drillster/drone-email
   settings:
